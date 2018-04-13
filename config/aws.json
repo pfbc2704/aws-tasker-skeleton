@@ -1,0 +1,15 @@
+{
+    "profiles": {
+        "default": {
+            "accountId": "",
+            "accessKeyId": "",
+            "secretAccessKey": ""
+            
+        },
+        "customer": {
+            "accountId": "",
+            "accessKeyId": "",
+            "secretAccessKey": ""
+        } 
+    }
+}

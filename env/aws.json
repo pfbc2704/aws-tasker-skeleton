@@ -1,0 +1,89 @@
+{
+    "client": "CustomerName",
+    "region": "eu-west-1", 
+    "prefix": "",
+    "timezone": "Europe/Lisbon",
+    
+    "ec2": {
+        "instances": {
+            "app": [],
+            "web": []
+        },
+        "ami": {
+            "app": "",
+            "web": ""
+        }
+    },
+    "rds": {
+        "user": "",
+        "pwd": "",
+        "configuration": {
+            "EngineVersion": "9.6.2",
+            "MultiAZ": false,
+            "Iops": 0,
+            "PubliclyAccessible": true,
+            "StorageEncrypted": false,
+            "StorageType": "gp2",
+            "VpcSecurityGroupIds": []   
+        },
+        "instances": {
+            "master": {
+                "number": 1,
+                "configuration":  {
+                    "DBInstanceClass": "db.r4.large", 
+                    "AllocatedStorage": 100,
+                    "DBParameterGroupName": "default",
+                    "MultiAZ": false               
+                }
+            },
+            "stores": {
+                "number": 10,
+                "configuration": {
+                    "DBInstanceClass": "db.r4.2xlarge", 
+                    "AllocatedStorage": 100,
+                    "DBParameterGroupName": "default",
+                    "MultiAZ": false
+                }
+            }
+        },
+        "port": 1234
+    },
+    "elasticCache": {
+        "url": "",
+        "port": "",
+        "nodes": 1
+    },
+    "s3": {
+        "buckets": {
+            "webapp": "backoffice",
+            "integrations": "integrations",
+            "storage": "storage"
+        },
+        "website": [],
+        "properties": {}
+    },
+    "sqs": {
+        "queues": {
+            "priority": "prt",
+            "standard": "std"
+        },
+        "attributes": {
+            "VisibilityTimeout": "1200",
+            "MessageRetentionPeriod": "604800" 
+        }
+    },
+    "lambda": {
+        "contentPath": "",
+        "alias": {},
+        "config": {
+            "MemorySize": 128, 
+            "Role": "lambda_basic_execution", 
+            "Runtime": "python3.2", 
+            "Timeout": 30, 
+            "Version": "$LATEST"
+        },
+        "exclude": []
+    }
+
+
+}
